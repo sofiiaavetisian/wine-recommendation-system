@@ -550,7 +550,8 @@ body {
   background: var(--bg);
   flex-shrink: 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .input-row {
@@ -711,6 +712,7 @@ body {
   .message { max-width: 100%; gap: 0.6rem; }
   .bubble { padding: 0.9rem 1rem; font-size: 0.9rem; }
   .input-area { padding: 0.8rem; }
+  .input-hint { display: none; }
   #welcomeMsg h2 { font-size: 2.2rem; }
   #welcomeMsg .subtitle { font-size: 1rem; }
 }
