@@ -112,7 +112,7 @@ async def get_popular():
             wine["food_parsed"] = safe_parse_list(str(wine.get("Harmonize", "")))
             wines.append(wine)
             
-    return {"wines": wines}
+    return Response(content=json.dumps({"wines": wines}, default=str), media_type="application/json")
 
 from fastapi import Request
 from fastapi.responses import Response
