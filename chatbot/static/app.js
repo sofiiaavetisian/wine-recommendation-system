@@ -21,6 +21,8 @@ const loadingOverlay= document.getElementById('loadingOverlay');
 const menuToggle    = document.getElementById('menuToggle');
 const sidebar       = document.getElementById('sidebar');
 const cardTemplate  = document.getElementById('wineCardTemplate');
+const backToChat    = document.getElementById('backToChat');
+const cardsTitle    = document.querySelector('.cards-title');
 
 // ── Sidebar toggle (mobile) ────────────────────────────────
 menuToggle.addEventListener('click', () => sidebar.classList.toggle('open'));
@@ -116,7 +118,20 @@ resetBtn.addEventListener('click', async () => {
   );
   userInput.value = '';
   userInput.style.height = 'auto';
+  document.body.classList.remove('popular-mode');
+  cardsTitle.textContent = "🍾 Recommended Wines";
 });
+
+// ── Back to Chat ──────────────────────────────────────────
+if (backToChat) {
+  backToChat.addEventListener('click', () => {
+    document.body.classList.remove('popular-mode');
+    cardsTitle.textContent = "🍾 Recommended Wines";
+    setTimeout(() => {
+        scrollToBottom();
+    }, 100);
+  });
+}
 
 // ── Explore Popular ───────────────────────────────────────
 const explorePopular = document.getElementById('explorePopular');
@@ -131,6 +146,9 @@ if (explorePopular) {
     const typingId = addTypingIndicator();
     
     try {
+      document.body.classList.add('popular-mode');
+      cardsTitle.textContent = "🌍 Global Favorites";
+
       const res = await fetch(`${API_BASE}/api/popular`);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
@@ -155,8 +173,16 @@ if (explorePopular) {
   });
 }
 
+    console.error('[VinBot error]', err);
+  }
+}
+
 // ── Main send handler ─────────────────────────────────────
 async function handleSend() {
+  if (document.body.classList.contains('popular-mode')) {
+    document.body.classList.remove('popular-mode');
+    cardsTitle.textContent = "🍾 Recommended Wines";
+  }
   const text = userInput.value.trim();
   if (!text) return;
 

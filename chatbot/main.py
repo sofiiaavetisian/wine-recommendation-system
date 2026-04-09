@@ -107,7 +107,6 @@ async def get_popular():
     for wid in top_ids:
         wine = recommender.get_wine_by_id(wid)
         if wine:
-            wine["similarity_score"] = 0.99  # Mock high score for UI rendering
             wine["grapes_parsed"] = safe_parse_list(str(wine.get("Grapes", "")))
             wine["food_parsed"] = safe_parse_list(str(wine.get("Harmonize", "")))
             wines.append(wine)

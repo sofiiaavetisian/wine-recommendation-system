@@ -103,8 +103,11 @@
   <!-- ---- Wine cards panel ---- -->
   <div class="cards-panel" id="cardsPanel" style="display:none;">
     <div class="cards-header">
-      <span class="cards-title">🍾 Recommended Wines</span>
-      <span class="cards-subtitle" id="cardsSubtitle">Based on your preferences</span>
+      <div style="display:flex; flex-direction:column; gap:0.4rem; flex:1;">
+        <span class="cards-title">🍾 Recommended Wines</span>
+        <span class="cards-subtitle" id="cardsSubtitle">Based on your preferences</span>
+      </div>
+      <button class="back-btn" id="backToChat">← Back to Chat</button>
     </div>
     <div class="cards-grid" id="cardsGrid"></div>
   </div>

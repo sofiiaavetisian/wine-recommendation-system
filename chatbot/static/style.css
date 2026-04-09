@@ -363,9 +363,61 @@ body {
   border-top: 1px solid var(--border);
   background: #f4eedd;
   flex-shrink: 0;
-  max-height: 42vh;
   overflow-y: auto;
   padding: 1.5rem;
+  transition: all 0.4s ease;
+}
+
+/* Popular Mode Overrides */
+body.popular-mode .input-area,
+body.popular-mode .chat-window,
+body.popular-mode .input-hint {
+  display: none !important;
+}
+
+body.popular-mode .cards-panel {
+  max-height: 100vh;
+  flex: 1;
+  background: var(--bg);
+  padding: 2.5rem;
+}
+
+body.popular-mode .wine-card {
+  border-left: none;
+}
+
+body.popular-mode .wine-card::before {
+  display: none;
+}
+
+body.popular-mode .card-score {
+  display: none;
+}
+
+body.popular-mode .cards-title {
+  font-size: 2.5rem;
+}
+
+.back-btn {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--radius);
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+body.popular-mode .back-btn {
+  display: inline-block;
+}
+
+.back-btn:hover {
+  background: var(--accent);
+  color: var(--text-inverse);
 }
 
 .cards-panel::-webkit-scrollbar { height: 6px; width: 6px; }
