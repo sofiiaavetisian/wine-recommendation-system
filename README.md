@@ -1,4 +1,6 @@
 # wine-recommendation-system
+Website of Wine Not? (May take a few minutes to load due to Render): https://wine-recommendation-system.onrender.com/
+Presentation: https://canva.link/0jz32mgvtdlr9q3
 
 ## Business Impact
 
@@ -12,4 +14,20 @@ For users with enough historical ratings, the collaborative‑filtering and cont
 
 Overall, the system moves the company from a one‑size‑fits‑all display strategy to a data‑driven recommendation engine that increases the likelihood that users encounter relevant wines early in their journey, exposes a much larger portion of the catalog, supporting long‑tail and niche products, and adapts recommendations to individual tastes when sufficient historical data is available. These effects translate into more efficient use of the existing catalog and a better customer experience than the current randomized or purely popularity‑based approach, and they provide a solid foundation for future online experiments to quantify conversion and revenue uplift.
 
+## Repo Structure
+
+The project is organized by the recommender groups which we have built:
+- EDA -> the exploratory data analysis of the dataset
+- preprocessing -> the notebooks in which we preprocessed the data (cleaning, train/test split)
+- non_personalised_recommenders -> random and popularity based recsys which serve as baseline
+- collaborative_filtering -> model-based CF (ALS)
+- context_aware_filtering -> a context aware ALS variant
+- content_based -> models based on BoW, TF-IDF, lemmatization, NER and BERT
+- hybrid_recommenders -> a TF-IDF + ALS recommender
+- bandits -> bandit-based recommender
+- comparison -> cross-model evaluation and unified results table
+There is also a folder dedicated to the chatbot. 
+
+
 ## Make sure to first run the notebooks in the preprocessing folder
+
